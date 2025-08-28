@@ -988,7 +988,7 @@
   display: flex;
   justify-content: center;
   background-color: #fffbf3;
-  scroll-margin-top: 120px;
+  /* scroll-margin-top: 120px; */
   gap: 50px;
 
   @media (max-width: 1100px) {

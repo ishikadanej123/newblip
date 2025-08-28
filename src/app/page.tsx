@@ -1037,8 +1037,6 @@ export default function LandingPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{
             once: true,
-            amount: 0.3,
-            margin: isMobile ? "0px" : "-100px",
           }}
           transition={{
             duration: shouldReduceMotion ? 0 : isMobile ? 0.2 : 0.7,
