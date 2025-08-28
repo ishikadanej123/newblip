@@ -9,6 +9,7 @@ import { faqs, features } from "@/constants/data";
 export default function LandingPage() {
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const landingRef = useRef<HTMLDivElement>(null);
@@ -1033,13 +1034,17 @@ export default function LandingPage() {
         </motion.section>
         <motion.section
           id="pricing"
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+          initial={
+            prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{
             once: true,
+            amount: 0.15, // trigger a bit earlier
+            margin: "0px 0px -10% 0px", // helps mobile Safari
           }}
           transition={{
-            duration: shouldReduceMotion ? 0 : isMobile ? 0.2 : 0.7,
+            duration: prefersReducedMotion ? 0 : isMobile ? 0.2 : 0.7,
             ease: "easeOut",
           }}
           className={styles.wrapperStart}
