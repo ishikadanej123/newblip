@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import styles from "../../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 
 const RealFetures = () => {
   const cardrocket = "/images/landing/tranparentRocket.svg";

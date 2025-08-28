@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import Header from "../../header/Header";
-import Footer from "../../footer/Footer";
-import styles from "../../../src/app/Landing.module.css";
+import Footer from "../../../footer/Footer";
+import styles from "/src/app/Landing.module.css";
 import HeroStart from "../components/HeroStart";
 import AboutStart from "../components/AboutStart";
 import RealFetureStart from "../components/RealFetureStart";
@@ -12,6 +11,7 @@ import FeatureStart from "../components/FeatureStart";
 import PricingStart from "../components/PricingStart";
 import FaqStart from "../components/FaqStart";
 import Intercom from "@intercom/messenger-js-sdk";
+import HeaderStart from "../components/HeaderStart";
 
 const StartPage = () => {
   const landingRef = useRef<HTMLDivElement>(null);
@@ -25,7 +25,7 @@ const StartPage = () => {
   return (
     <div className={styles.landing} ref={landingRef}>
       <div className={styles.container}>
-        <Header />
+        <HeaderStart />
         <HeroStart />
         <AboutStart />
         <RealFetureStart />

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import Header from "../../header/Header";
+import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import About from "../components/About";
 import RealFetures from "../components/RealFetures";
@@ -9,8 +9,8 @@ import CardContainer from "../components/CardContainer";
 import FeturesSection from "../components/FeturesSection";
 import PricingSection from "../components/PricingSection";
 import FaqSection from "../components/FaqSection";
-import Footer from "../../footer/Footer";
-import styles from "../../../src/app/Landing.module.css";
+import Footer from "../../../footer/Footer";
+import styles from "/src/app/Landing.module.css";
 import Intercom from "@intercom/messenger-js-sdk";
 
 // Intercom({

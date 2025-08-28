@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import styles from "../../../src/app/Landing.module.css";
-import { features } from "../../constants/data";
+import styles from "/src/app/Landing.module.css";
+import { features } from "../../../../constants/data";
 
 const FeatureStart = () => {
   const shouldReduceMotion = useReducedMotion();

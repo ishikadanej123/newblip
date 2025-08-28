@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import styles from "../../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 
 const VideoSection = () => {
   const shouldReduceMotion = useReducedMotion();

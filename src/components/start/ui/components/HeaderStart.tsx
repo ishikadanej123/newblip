@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import styles from "../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 
-const Header = () => {
+const HeaderStart = () => {
   const menuBtnRef = useRef<HTMLButtonElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -134,4 +134,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderStart;

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import styles from "../../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 

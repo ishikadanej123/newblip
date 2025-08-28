@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import styles from "../../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 import Image from "next/image";
 
-const AboutStart = () => {
+const About = () => {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
-  const swap = "/images/landing/Frame.svg";
   const rose = "/images/landing/rose.svg";
+  const swap = "/images/landing/Frame.svg";
   const settings = "/images/landing/setting.svg";
   const rocket = "/images/landing/rocket.svg";
   return (
@@ -82,4 +82,4 @@ const AboutStart = () => {
   );
 };
 
-export default AboutStart;
+export default About;

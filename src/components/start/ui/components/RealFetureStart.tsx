@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import styles from "../../../src/app/Landing.module.css";
+import styles from "/src/app/Landing.module.css";
 import Image from "next/image";
 
 const RealFetureStart = () => {
