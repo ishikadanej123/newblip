@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "/src/app/Landing.module.css";
 import Image from "next/image";
@@ -12,6 +12,20 @@ const PricingStart = () => {
   const earth = "/images/landing/earth.webp";
   const cards = "/images/landing/cartgroup.webp";
   const mobilecards = "/images/landing/cartmobile.webp";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
+
   return (
     <motion.section
       id="pricing"

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "/src/app/Landing.module.css";
 import { features } from "../../../../constants/data";
@@ -8,6 +8,19 @@ const FeatureStart = () => {
   const shouldReduceMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
   const iconOrange = "/images/landing/iconOrange.svg";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
   return (
     <motion.section
       className={styles.wrapperIcon}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "/src/app/Landing.module.css";
 import { faqs } from "../../../../constants/data";
@@ -13,6 +13,19 @@ const FaqStart = () => {
     setOpenIndex(openIndex === index ? null : index);
   };
   const plusicon = "/images/landing/plus.svg";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
 
   return (
     <motion.section

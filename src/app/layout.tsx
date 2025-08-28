@@ -57,20 +57,6 @@ export default function RootLayout({
         />
         <link
           rel="preload"
-          href="/fonts/NexaRound/subset-NexaRound-Light.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/NexaRound/subset-NexaRound-Thin.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
           href="/fonts/NexaRound/subset-NexaRound-Heavy.woff2"
           as="font"
           type="font/woff2"

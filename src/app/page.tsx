@@ -71,6 +71,17 @@ export default function LandingPage() {
   }, []);
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
+
+  useEffect(() => {
     const scrollHandler = () => {
       if (landingRef.current) {
         setIsScrolled(landingRef.current.scrollTop > 10);
@@ -226,7 +237,7 @@ export default function LandingPage() {
                 className={styles.herorocket}
                 style={{
                   transformOrigin: "center center !important",
-                  verticalAlign: "top", // Add this line// More explicit
+                  verticalAlign: "top",
                 }}
                 initial={{
                   y: 50,

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import styles from "/src/app/Landing.module.css";
 import Image from "next/image";
@@ -11,6 +11,19 @@ const AboutStart = () => {
   const rose = "/images/landing/rose.svg";
   const settings = "/images/landing/setting.svg";
   const rocket = "/images/landing/rocket.svg";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
   return (
     <motion.section
       id="about"

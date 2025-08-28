@@ -9,36 +9,33 @@ const HeroStart = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [showButton1, setShowButton1] = useState(true);
   const roket = "/images/landing/uploadrocket2.webp";
   const star = "/images/landing/star.webp";
   const right = "/images/landing/check.svg";
   const meta = "/images/landing/metanew.webp";
   const video = "/images/landing/Screenshot.webp";
   const plus = "/images/landing/pauseCtaFrame.svg";
-  const rose = "/images/landing/rose.svg";
   const sampleVideo = "/video/Demo.mp4";
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
   const handlePlay = () => {
     setIsVideoPlaying(true);
     setTimeout(() => {
       videoRef.current?.play();
     }, 100);
   };
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
 
-    const handlePlay = () => {
-      setShowButton1(false);
-    };
-
-    video.addEventListener("play", handlePlay);
-
-    return () => {
-      video.removeEventListener("play", handlePlay);
-    };
-  }, []);
   return (
     <div>
       <motion.section

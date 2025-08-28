@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "/src/app/Landing.module.css";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -19,6 +19,19 @@ const CardStart = () => {
   const dynamic = "/images/landing/dynamic.svg";
   const dynamicImg = "/images/landing/dynamic-img.webp";
   const cardmobile4 = "/images/landing/mobilecard4.webp";
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkScreen = () => {
+        setIsMobile(window.innerWidth <= 768);
+      };
+
+      checkScreen();
+      window.addEventListener("resize", checkScreen);
+
+      return () => window.removeEventListener("resize", checkScreen);
+    }
+  }, []);
   return (
     <div className={styles.cardsContainer}>
       <motion.section
