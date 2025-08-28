@@ -5,7 +5,7 @@ import styles from "/src/app/Landing.module.css";
 import Image from "next/image";
 
 const PricingStart = () => {
-  const shouldReduceMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
   const check = "/images/landing/checkmark.svg";
   const light = "/images/landing/light.webp";
@@ -15,15 +15,17 @@ const PricingStart = () => {
   return (
     <motion.section
       id="pricing"
-      initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 30 }}
+      initial={
+        prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+      }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{
         once: true,
-        amount: 0.3,
-        margin: isMobile ? "0px" : "-100px",
+        amount: 0.15,
+        margin: "0px 0px -10% 0px",
       }}
       transition={{
-        duration: shouldReduceMotion ? 0 : isMobile ? 0.2 : 0.7,
+        duration: prefersReducedMotion ? 0 : isMobile ? 0.2 : 0.7,
         ease: "easeOut",
       }}
       className={styles.wrapperStart}
